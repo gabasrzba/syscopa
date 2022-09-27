@@ -9,52 +9,52 @@ public class JogadorDAO implements JogadorInterface{
 	static Scanner scan = new Scanner(System.in);
 
 	/**
-	 *  ADICIONAR UM NOVO JOGADOR:
+	 * METODO PARA ADICIONAR JOGADOR:
 	 * @param nomeSelecao
 	 * @return
 	 */
-		public static Jogador inserirJogador(String nomeSelecao) {
-			boolean jaExiste = false;
-			System.out.println("CODIGO DO JOGADOR: ");
-			System.out.flush();
-			int codigo = scan.nextInt();
-			
-			Iterator<Jogador> i = listaJogador.iterator();
-			while(i.hasNext()) {
-				Jogador e = i.next();
-				if (e.getCodJog() == codigo) {
-					jaExiste = true;
-					while(jaExiste) {
-						System.out.println("CODIGO JA USADO. TENTE OUTRO");
-						System.out.println("CODIGO DO JOGADOR: ");
-						System.out.flush();
-						codigo = scan.nextInt();
-						if (e.getCodJog() == codigo)
-							jaExiste = true;
-						else
-							jaExiste = false;
-					}
+	public static Jogador inserirJogador(String nomeSelecao) {
+		boolean jaExiste = false;
+		System.out.println("CODIGO DO JOGADOR: ");
+		System.out.flush();
+		int codigo = scan.nextInt();
+		
+		Iterator<Jogador> i = listaJogador.iterator();
+		while(i.hasNext()) {
+			Jogador e = i.next();
+			if (e.getCodJog() == codigo) {
+				jaExiste = true;
+				while(jaExiste) {
+					System.out.println("CODIGO JA USADO. TENTE OUTRO");
+					System.out.println("CODIGO DO JOGADOR: ");
+					System.out.flush();
+					codigo = scan.nextInt();
+					if (e.getCodJog() == codigo)
+						jaExiste = true;
+					else
+						jaExiste = false;
 				}
 			}
-			System.out.println("NOME DO JOGADOR: ");
-			System.out.flush();
-			String nome = scan.next();
-			System.out.println("POSICAO DO JOGADOR: ");
-			System.out.flush();
-			String posicao = escolherPosicao();
-			System.out.println("GOLS DO JOGADOR: ");
-			System.out.flush();
-			int gols = scan.nextInt();
-			System.out.println("CARTOES AMARELOS DO JOGADOR: ");
-			System.out.flush();
-			int cAmarelos = scan.nextInt();
-			System.out.println("CARTOES VERMELHOS DO JOGADOR: ");
-			System.out.flush();
-			int cVermelhos = scan.nextInt();
-//			qtdJog = listaJogador.size() + 1;
-			listaJogador.add(new Jogador(codigo, nome, posicao, nomeSelecao, gols, cAmarelos, cVermelhos));
-			return new Jogador(codigo, nome, posicao, nomeSelecao, gols, cAmarelos, cVermelhos);
 		}
+		System.out.println("NOME DO JOGADOR: ");
+		System.out.flush();
+		String nome = scan.next();
+		System.out.println("POSICAO DO JOGADOR: ");
+		System.out.flush();
+		String posicao = escolherPosicao();
+		System.out.println("GOLS DO JOGADOR: ");
+		System.out.flush();
+		int gols = scan.nextInt();
+		System.out.println("CARTOES AMARELOS DO JOGADOR: ");
+		System.out.flush();
+		int cAmarelos = scan.nextInt();
+		System.out.println("CARTOES VERMELHOS DO JOGADOR: ");
+		System.out.flush();
+		int cVermelhos = scan.nextInt();
+		adicionarEmSelecao(new Jogador(codigo, nome, posicao, nomeSelecao, gols, cAmarelos, cVermelhos));
+		listaJogador.add(new Jogador(codigo, nome, posicao, nomeSelecao, gols, cAmarelos, cVermelhos));
+		return new Jogador(codigo, nome, posicao, nomeSelecao, gols, cAmarelos, cVermelhos);
+	}
 		
 		/**
 		 * METODO PARA VISUALIZAR TODOS OS JOGADORES:
@@ -212,5 +212,43 @@ public class JogadorDAO implements JogadorInterface{
 			for (Jogador objeto : listaJogador) {
 				System.out.println(objeto);
 			}			
+		}
+		
+		/**
+		 * ADICIONAR JOGADOR A UMA SELECAO:
+		 * @param tecnico
+		 */
+		@SuppressWarnings("static-access")
+		public static void adicionarEmSelecao(Jogador jogador) {
+			
+			boolean encontrado = false;
+			System.out.println("----------------------------------------");
+			ArrayList<Selecao> listaSelecao = SelecaoDAO.getListaSelecao();
+			
+			Iterator<Selecao> s = listaSelecao.iterator();
+			System.out.println("DIGITE O NOME DA SELECAO A SER ADICIONADO: ");
+			String nomeSelecao = scan.next();
+			while(s.hasNext()) {
+				Selecao e = s.next();
+				ArrayList<Jogador> listaJogadores = e.getListJog();
+				Iterator<Jogador> j = listaJogadores.iterator();
+				int tam = listaJogadores.size();
+				if (e.getName().equals(nomeSelecao)){
+					if ( tam > 10) {
+						System.out.println("SELEÇÃO COM JOGADORES JA COMPLETOS!");
+						break;
+					} else {
+		
+							tam = listaJogadores.size();
+							listaJogadores.add(jogador);
+									}
+								}
+								encontrado = true;
+							}
+			
+				
+			if (!encontrado) {
+				System.out.println("SELECAO NAO ENCONTRADA!");
+			}
 		}
 }
