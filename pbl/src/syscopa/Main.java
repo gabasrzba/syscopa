@@ -19,36 +19,37 @@ DO CODIGO, E ESTOU CIENTE QUE ESTES TRECHOS NAO SERAO CONSIDERADOS PARA FINS DE 
  * 
  */
 public class Main {
+	
+	static Scanner scan = new Scanner(System.in);
 	public static void main(String[] args) {
-		try (Scanner scan = new Scanner(System.in)) {
-			int opcao;
-			do {
-				System.out.println("\n---------- SYSCOPA ----------");
-				System.out.println("1 - MENU DE JOGADORES");
-				System.out.println("2 - MENU DE SELECOES");
-				System.out.println("3 - MENU DE TECNICOS");
-				System.out.println("4 - MENU DE ARBITROS");
-				System.out.println("5 - SAIR");
-				System.out.flush();
-				opcao = scan.nextInt();
-				switch(opcao) {
-					case 1:
-						Jogador.menuJogador();
-						break;
-					case 2:
-						Selecao.menuSelecao();
-						break;
-					case 3:
-						Tecnico.menuTecnico();
-						break;
-					case 4:
-						Arbitro.menuArbitro();
-						break;
-					case 5:
-						System.out.println("PROGRAMA ENCERRADO");
-						break;
-				}
-			} while(opcao != 5);
-		}
+		int opcao;
+		do {
+			System.out.println("\n---------- SYSCOPA ----------");
+			System.out.println("1 - MENU DE JOGADORES");
+			System.out.println("2 - MENU DE SELECOES");
+			System.out.println("3 - MENU DE TECNICOS");
+			System.out.println("4 - MENU DE ARBITROS");
+			System.out.println("5 - SAIR");
+			System.out.flush();
+			opcao = scan.nextInt();
+			switch(opcao) {
+				case 1:
+					Jogador.menuJogador();
+					break;
+				case 2:
+					Selecao.menuSelecao();
+					break;
+				case 3:
+					Tecnico.menuTecnico();
+					break;
+				case 4:
+					Arbitro.menuArbitro();
+					break;
+				case 5:
+					System.out.println("PROGRAMA ENCERRADO");
+					break;
+			}
+		} while(opcao != 5);
 	}
+	
 }
