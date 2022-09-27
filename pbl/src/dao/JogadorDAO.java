@@ -1,4 +1,4 @@
-package dao;
+ package dao;
 import syscopa.*;
 import Interface.*;
 import java.util.*;
@@ -57,7 +57,7 @@ public class JogadorDAO implements JogadorInterface{
 		}
 		
 		/**
-		 * MÉTODO PARA VISUALIZAR TODOS OS JOGADORES:
+		 * METODO PARA VISUALIZAR TODOS OS JOGADORES:
 		 */
 		public static void listarJogadores() {
 			System.out.println("----------------------------------------");
@@ -70,7 +70,7 @@ public class JogadorDAO implements JogadorInterface{
 		}
 		
 		/**
-		 * MÉTODO PARA BUSCAR UM JOGADOR PELO CODIGO:
+		 * METODO PARA BUSCAR UM JOGADOR PELO CODIGO:
 		 */
 		public static void procurarJogador() {
 			boolean encontrado = false;
@@ -92,7 +92,7 @@ public class JogadorDAO implements JogadorInterface{
 		}
 		
 		/**
-		 * MÉTODO PARA DELETAR UM JOGADOR:
+		 * METODO PARA DELETAR UM JOGADOR:
 		 */
 		public static void excluirJogador() {
 			boolean encontrado = false;
@@ -128,7 +128,7 @@ public class JogadorDAO implements JogadorInterface{
 		}
 		
 		/**
-		 *  MÉTODO PARA SELECIONAR A POSIÇÃO DE 'JOGADOR':
+		 *  METODO PARA SELECIONAR A POSICAO DE 'JOGADOR':
 		 * @return
 		 */
 		public static String escolherPosicao() {
@@ -157,7 +157,7 @@ public class JogadorDAO implements JogadorInterface{
 		}
 		
 		/**
-		 * MÉTODO PARA ATUALIZAR DADOS DO JOGADOR:
+		 * METODO PARA ATUALIZAR DADOS DO JOGADOR:
 		 */
 		public static void editarJogador() {
 			boolean encontrado = false;
@@ -205,7 +205,7 @@ public class JogadorDAO implements JogadorInterface{
 			}
 		
 		/**
-		 * MÉTODO PARA LER LISTA DE JOGADORES:
+		 * METODO PARA LER LISTA DE JOGADORES:
 		 * @param listaJogador
 		 */
 		public static void listarJogadores(ArrayList<Jogador> listaJogador) {

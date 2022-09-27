@@ -15,7 +15,7 @@ public class Tecnico implements TecnicoInterface {
 	private static String nomeSelecao;
 	
 	/**
-	 * CONSTRUCTOR DE TÉCNICO:
+	 * CONSTRUCTOR DE TECNICO:
 	 * @param codTec
 	 * @param nomeTec
 	 * @param Selecao
@@ -46,7 +46,7 @@ public class Tecnico implements TecnicoInterface {
 			"\nSELECAO: " + nomeSelecao;}
 	
 	/**
-	 * MENU DE TÉCNICO
+	 * MENU DE TECNICO:
 	 */
 	public static void menuTecnico() {
 		int opcao;

@@ -7,12 +7,12 @@ public class TecnicoDAO implements TecnicoInterface{
 	static Scanner scan = new Scanner(System.in);
 	
 	/**
-	 * LISTA DE TÉCNICO:
+	 * LISTA DE TECNICO:
 	 */
 	private static ArrayList<Tecnico> listaTecnicos = new ArrayList<Tecnico>();
 	
 	/**
-	 * MÉTODO PARA INSERIR TÉCNICO:
+	 * METODO PARA INSERIR TECNICO:
 	 * @param nomeSelecao
 	 * @return
 	 */
@@ -42,13 +42,13 @@ public class TecnicoDAO implements TecnicoInterface{
 		System.out.println("NOME DO TECNICO: ");
 		System.out.flush();
 		String nome = scan.next();
+		adicionarEmSelecao(new Tecnico(codigo, nome, Tecnico.getNomeSelecao())); 
 		listaTecnicos.add(new Tecnico(codigo, nome, Tecnico.getNomeSelecao()));
-		adicionarEmSelecao(new Tecnico(codigo, nome, Tecnico.getNomeSelecao()));
 		return new Tecnico(codigo, nome, nomeSelecao);
 	}
 
 	/**
-	 * MÉTODO PARA EDITAR UM TÉCNICO:
+	 * METODO PARA EDITAR UM TECNICO:
 	 */
 	@SuppressWarnings("static-access")
 	public static void editarTecnico() {
@@ -84,7 +84,7 @@ public class TecnicoDAO implements TecnicoInterface{
 	}
 
 	/**
-	 * MÉTODO PARA EXCLUIR TÉCNICO:
+	 * METODO PARA EXCLUIR TECNICO:
 	 */
 	public static void excluirTecnico() {
 		boolean encontrado = false;
@@ -124,12 +124,12 @@ public class TecnicoDAO implements TecnicoInterface{
 	}
 	
 	/**
-	 * MÉTODO PARA ADICIONAR TÉCNICO À SELEÇÃO:
+	 * ADICIONA UM TECNICO EM SELECAO:
 	 * @param tecnico
 	 */
 	@SuppressWarnings("static-access")
 	public static void adicionarEmSelecao(Tecnico tecnico) {
-		String nomeSelecao = scan.next();
+		
 		boolean encontrado = false;
 		System.out.println("----------------------------------------");
 		ArrayList<Selecao> listaSelecao = SelecaoDAO.getListaSelecao();
@@ -138,15 +138,21 @@ public class TecnicoDAO implements TecnicoInterface{
 			Selecao e = s.next();
 			if(e.getName().equals(tecnico.getNomeSelecao())) {
 				if(e.getTecnico() == null) {
-					tecnico.setNomeSelecao(nomeSelecao);
-					e.setTecnico(tecnico);
+					if (tecnico.getNomeSelecao().equals(null)) {
+						System.out.println("DIGITE O NOME DA SELECAO A SER ADICIONADO: ");
+						String nomeSelecao = scan.next();
+						tecnico.setNomeSelecao(nomeSelecao);
+						e.setTecnico(tecnico);
+					} else {
+						e.setTecnico(tecnico);
+					}
 				} else {
 					System.out.println("ESTA SELECAO JA POSSUI TECNICO!");
 				}
 				encontrado = true;
 			}
 		}
-		if (!encontrado) {
+		if (encontrado) {
 			System.out.println("SELECAO NAO ENCONTRADA!");
 		}
 	}

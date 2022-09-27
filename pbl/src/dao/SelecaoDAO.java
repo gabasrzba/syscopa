@@ -7,7 +7,7 @@ public class SelecaoDAO implements SelecaoInterface {
 	private static Scanner scan = new Scanner(System.in);
 	
 	/**
-	 * LISTA DE SELEÇÕES:
+	 * LISTA DE SELECOES:
 	 */
 	private static ArrayList<Selecao> listaSelecao = new ArrayList<Selecao>();
 	
@@ -16,7 +16,7 @@ public class SelecaoDAO implements SelecaoInterface {
 	public static void setListaSelecao(ArrayList<Selecao> listaSelecao) {SelecaoDAO.listaSelecao = listaSelecao;}
 
 	/**
-	 * MÉTODO PARA INSERIR UMA NOVA SELEÇÃO ONDE ELE ADICIONA PELO MENOS UM JOGADOR E TÉCNICO À SELEÇÃO:
+	 * METODO PARA INSERIR UMA NOVA SELECAO ONDE ELE ADICIONA PELO MENOS UM JOGADOR E TECNICO A SELECAO:
 	 */
 	public static void inserirSelecao() {
 		
@@ -48,7 +48,7 @@ public class SelecaoDAO implements SelecaoInterface {
 	}
 
 	/**
-	 * MÉTODO PARA EDITAR UMA SELEÇÃO ONDE O NOME DELA É MODIFICADO:
+	 * METODO PARA EDITAR UMA SELECAO ONDE O NOME DELA E MODIFICADO:
 	 */
 	public static void editarSelecao() {
 		boolean encontrado = false;
@@ -78,7 +78,7 @@ public class SelecaoDAO implements SelecaoInterface {
 	}
 
 	/**
-	 * MÉTODO PARA EXCLUIR UMA SELEÇÃO:
+	 * METODO PARA EXCLUIR UMA SELECAO:
 	 */
 	public static void excluirSelecao() {
 		boolean encontrado = false;
@@ -91,7 +91,9 @@ public class SelecaoDAO implements SelecaoInterface {
 			Selecao e = s.next();
 			if(e.getName().equals(nomeSelecao)) {
 				s.remove();		
+				
 				encontrado = true;
+				
 			}
 		}
 		if (!encontrado) {
@@ -104,7 +106,7 @@ public class SelecaoDAO implements SelecaoInterface {
 	}
 
 	/**
-	 * MÉTODO PARA LISTAR UMA SELEÇÃO:
+	 * METODO PARA LISTAR UMA SELECAO:
 	 */
 	public static void listarSelecao() {
 		for (Selecao selecao: listaSelecao) {

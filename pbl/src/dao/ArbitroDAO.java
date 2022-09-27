@@ -18,7 +18,7 @@ public class ArbitroDAO implements ArbitroInterface{
 	private static int codigo;
 	
 	/**
-	 * MÉTODO PARA INSERIR UM ARBITRO:
+	 * METODO PARA INSERIR UM ARBITRO:
 	 */
 	public static void inserirArbitro() {
 		System.out.println("NOME DO ARBITRO: ");
@@ -28,7 +28,7 @@ public class ArbitroDAO implements ArbitroInterface{
 	}
 
 	/**
-	 * MÉTODO PARA EDITAR UM ARBITRO:
+	 * METODO PARA EDITAR UM ARBITRO:
 	 */
 	public static void editarArbitro() {
 		ArrayList<Arbitro> listaArbitros = new ArrayList<Arbitro>();
@@ -58,7 +58,7 @@ public class ArbitroDAO implements ArbitroInterface{
 	}
 	
 	/**
-	 * MÉTODO PARA EXCLUIR UM ARBITRO:
+	 * METODO PARA EXCLUIR UM ARBITRO:
 	 */
 	public static void excluirArbitro() {
 		
@@ -84,7 +84,7 @@ public class ArbitroDAO implements ArbitroInterface{
 	}
 
 	/**
-	 * MÉTODO PARA LISTAR OS ARBITROS:
+	 * METODO PARA LISTAR OS ARBITROS:
 	 */
 	public static void listarArbitro() {
 		for (Arbitro objeto : listaArbitros) {

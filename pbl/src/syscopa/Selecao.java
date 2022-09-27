@@ -2,7 +2,7 @@ package syscopa;
 import dao.*;
 import java.util.*;
 
-// CLASSE SELEÇÃO:
+// CLASSE SELECAO:
 public class Selecao{
 
 	private static String name;
@@ -12,7 +12,7 @@ public class Selecao{
 	
 	
 	/**
-	 * CONSTRUCTOR DE SELEÇÃO:
+	 * CONSTRUCTOR DE SELECAO:
 	 * @param nome
 	 * @param listJog
 	 * @param tecnico
@@ -23,7 +23,7 @@ public class Selecao{
 		this.tecnico = tecnico;
 	}
 
-	// GETTERS E SETTERS DA SELEÇÃO:
+	// GETTERS E SETTERS DA SELECAO:
 	public String getName() {return name;}
 	public Tecnico getTecnico() {return tecnico;}
 	
@@ -42,7 +42,7 @@ public class Selecao{
 	}
 
 	/**
-	 * MENU DE SELEÇÃO:
+	 * MENU DE SELECAO:
 	 */
 	public static void menuSelecao() {
 		
